@@ -127,6 +127,8 @@ while True:
 
 
 ################ colisão da cobra nela mesma #####################
+        ''' if lista_cobra.count(lista_cabeca) > 1:
+            break '''
         
 
         if len(lista_cobra) > comprimento_inicial:
