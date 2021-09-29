@@ -126,6 +126,8 @@ while True:
         lista_cobra.append(lista_cabeca)
 
 
+################ colisão da cobra nela mesma #####################
+        
 
         if len(lista_cobra) > comprimento_inicial:
            del lista_cobra[0]
