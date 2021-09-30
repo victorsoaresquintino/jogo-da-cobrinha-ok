@@ -145,16 +145,16 @@ while True:
         if lista_cobra.count(lista_cabeca) > 1:
             morreu = True
             while morreu:
-                for event in pygame.event.get():
-                    if event.type == QUIT:
-                        pygame.quit()
-                        exit()
-                    if event.type == KEYDOWN:
-                        if event.key == K_r:
-                            reiniciar_jogo()
+                for event in pygame.event.get(): 
+                    if event.type == QUIT: 
+                        pygame.quit() 
+                        exit() 
+                    if event.type == KEYDOWN: 
+                        if event.key == K_r: 
+                            reiniciar_jogo() 
 
-        if len(lista_cobra) > comprimento_inicial:
-           del lista_cobra[0]
+        if len(lista_cobra) > comprimento_inicial: 
+           del lista_cobra[0] 
            
 
         aumenta_cobra(lista_cobra)
