@@ -22,7 +22,7 @@ x_cobra = int(largura/2)
 y_cobra = int(altura/2)
 
 x_maca = randint(40,600)
-y_maca = randint(50,430)
+y_maca = randint(40,430)
 
 
 ################# Controles ###############
@@ -54,6 +54,21 @@ def aumenta_cobra(lista_cobra):
         # XeY[1] = y  
 
         pygame.draw.circle(tela, (0,255,0), (XeY[0], XeY[1]), 9)
+
+################ game-over / reiniciar #####################
+morreu = False
+
+def reiniciar_jogo():
+    global potos, comprimento_inicial, x_cobra, y_cobra, lista_cobra, lista_cabeca, x_maca,y_maca, morreu
+    potos = 0
+    comprimento_inicial = 5
+    x_cobra = int(largura/2)
+    y_cobra = int(altura/2)
+    lista_cobra = []
+    lista_cabeca = []
+    x_maca = randint(40, 600)
+    y_maca = randint(40, 430)
+    morreu = False
 
 ################ Cores ##########################
 while True:
@@ -127,9 +142,16 @@ while True:
 
 
 ################ colisão da cobra nela mesma #####################
-        ''' if lista_cobra.count(lista_cabeca) > 1:
-            break '''
-        
+        if lista_cobra.count(lista_cabeca) > 1:
+            morreu = True
+            while morreu:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        pygame.quit()
+                        exit()
+                    if event.type == KEYDOWN:
+                        if event.key == K_r:
+                            reiniciar_jogo()
 
         if len(lista_cobra) > comprimento_inicial:
            del lista_cobra[0]
